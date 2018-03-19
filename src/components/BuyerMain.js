@@ -38,7 +38,7 @@ class SocialTracker extends Component {
         <Grid className="grid">
           <Row>
             <Jumbotron className="center-text">
-              <h1>Social Media Tracker</h1>
+              <h1>Find RE buyers - buyer page</h1>
             </Jumbotron>
 
           </Row>
@@ -77,14 +77,6 @@ class SocialTracker extends Component {
           {this.renderFeed()}
         </Grid>
     )
-  }
-
-  changeTwitterSource(event) {
-    this.setState({twitter: event.target.value});
-  }
-
-  changeRedditSource(event) {
-    this.setState({reddit: event.target.value});
   }
 
   renderFeed() {

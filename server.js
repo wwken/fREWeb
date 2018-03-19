@@ -3,7 +3,7 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var webpack_config = require('./webpack.config');
 var Twitter = require('twitter');
-var config = require('./config');
+var config = require('./config/config');
 console.log(config);
 var client = new Twitter({
   consumer_key: config.twitter_consumer_key,

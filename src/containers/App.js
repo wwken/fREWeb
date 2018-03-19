@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import SocialTracker from '../components/SocialTracker'
+import BuyerMain from '../components/BuyerMain'
 import * as SocialActions from '../actions/social'
 
 function mapStateToProps(state) {
@@ -13,4 +13,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(SocialActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SocialTracker)
+export default connect(mapStateToProps, mapDispatchToProps)(BuyerMain)
