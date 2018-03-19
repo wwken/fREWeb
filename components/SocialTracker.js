@@ -11,12 +11,27 @@ class SocialTracker extends Component {
   }
 
   componentDidMount() {
-    this.syncFeed();
+    const script1 = document.createElement('script');
+    script1.type = 'text/javascript';
+    script1.innerHTML = "var map;\n" +
+      "      function initMap() {\n" +
+      "        map = new google.maps.Map(document.getElementById('map'), {\n" +
+      "          center: {lat: -34.397, lng: 150.644},\n" +
+      "          zoom: 8\n" +
+      "        });\n" +
+      "      }";
+    document.body.appendChild(script1);
+
+    const script = document.createElement("script");
+
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCkwnanO87eexOUbrxxYY59Shx3jPYvr-8&callback=initMap";
+    script.async = true;
+    script.defer = true;
+
+    document.body.appendChild(script);
   }
 
   render() {
-    console.log('render props');
-    console.log(this.props);
     let {filterTweets, filterReddits} = this.props;
     let {showTweets, showReddits} = this.props.social;
     return (
@@ -26,6 +41,9 @@ class SocialTracker extends Component {
               <h1>Social Media Tracker</h1>
             </Jumbotron>
 
+          </Row>
+          <Row>
+            <div id="map"></div>
           </Row>
           <Row>
             <Col xs={8} md={8} mdOffset={2}>
@@ -67,13 +85,6 @@ class SocialTracker extends Component {
 
   changeRedditSource(event) {
     this.setState({reddit: event.target.value});
-  }
-
-  syncFeed() {
-    const { fetchTweets, fetchReddits } = this.props;
-    fetchReddits(this.state.reddit);
-    fetchTweets(this.state.twitter);
-    console.log('syncFeed was called');
   }
 
   renderFeed() {
