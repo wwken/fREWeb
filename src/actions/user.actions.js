@@ -12,6 +12,7 @@ export const userActions = {
 };
 
 function login(username, password) {
+  debugger
     return dispatch => {
         dispatch(request({ username }));
 
@@ -39,6 +40,7 @@ function logout() {
 }
 
 function register(user) {
+  debugger
     return dispatch => {
         dispatch(request(user));
 
